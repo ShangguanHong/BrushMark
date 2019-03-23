@@ -97,3 +97,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+.idea/deployment.xml
+.idea/workspace.xml
+cmake-build-debug/
