@@ -3,4 +3,4 @@ project(BrushMark)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(BrushMarki main.cpp)
+add_executable(BrushMarki main.cpp main.cpp)
