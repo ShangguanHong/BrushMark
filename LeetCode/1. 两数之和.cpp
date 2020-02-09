@@ -7,6 +7,7 @@ public:
     vector<int> twoSum(vector<int>& nums, int target) {
         map<int, int> record;
         vector<int> res;
+        
         for (int i = 0; i < nums.size(); i ++) {
             int complement = target - nums[i];
             if (record.find(complement) != record.end()) {
