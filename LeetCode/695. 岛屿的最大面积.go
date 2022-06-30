@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func maxAreaOfIsland(grid [][]int) int {
 	m := len(grid)

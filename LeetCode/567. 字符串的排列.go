@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func checkInclusion(s1 string, s2 string) bool {
 	if len(s1) > len(s2) {

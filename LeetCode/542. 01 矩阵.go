@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func updateMatrix(mat [][]int) [][]int {
 	n := len(mat)

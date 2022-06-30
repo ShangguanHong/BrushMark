@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func lengthOfLongestSubstring(s string) int {
 	var (

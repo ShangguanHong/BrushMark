@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func rotate(nums []int, k int) {
 	k %= len(nums)

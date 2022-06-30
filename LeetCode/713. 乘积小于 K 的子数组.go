@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	if len(nums) == 1 {

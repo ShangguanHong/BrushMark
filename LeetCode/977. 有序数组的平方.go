@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func sortedSquares(nums []int) []int {
 	var (

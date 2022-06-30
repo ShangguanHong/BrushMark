@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func search(nums []int, target int) int {
 	if nums[0] > target || nums[len(nums)-1] < target {

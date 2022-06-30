@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func moveZeroes(nums []int) {
 	for left, right := 0, 0; right < len(nums); right++ {

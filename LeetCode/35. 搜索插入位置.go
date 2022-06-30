@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 func searchInsert(nums []int, target int) int {
 	if nums[0] > target {

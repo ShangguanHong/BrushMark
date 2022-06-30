@@ -1,4 +1,4 @@
-package LeetCode
+package main
 
 type RecentCounter struct {
 	bitmap [3002]int
