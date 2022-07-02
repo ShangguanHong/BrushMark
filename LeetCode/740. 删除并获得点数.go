@@ -1,7 +1,7 @@
 package main
 
 import (
-	"sort"
+	"fmt"
 )
 
 // 给你一个整数数组 nums ，你可以对它进行一些操作。
@@ -35,23 +35,13 @@ import (
 // 1 <= nums[i] <= 104
 
 func deleteAndEarn(nums []int) int {
-	record := make(map[int]int)
+	newNums := make([]int, 1e4+1)
 	for _, num := range nums {
-		record[num] += num
+		newNums[num] += num
 	}
 
-	nums = make([]int, 0, len(record))
-	for k := range record {
-		nums = append(nums, k)
-	}
-
-	sort.Ints(nums)
-
-	n := len(nums)
-	dp := make([][]int, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]int, n)
-		dp[i][i] = record[nums[i]]
+	if len(newNums) == 1 {
+		return newNums[nums[0]]
 	}
 
 	max := func(x, y int) int {
@@ -62,12 +52,17 @@ func deleteAndEarn(nums []int) int {
 		return y
 	}
 
-	for i := n - 2; i >= 0; i-- {
-		for j := n + 1; j < n; j++ {
-			for k := i; k < j; k++ {
+	dp := make([]int, 1e4+1)
+	dp[0] = newNums[0]
+	dp[1] = max(newNums[0], newNums[1])
 
-			}
-		}
+	for i := 2; i <= 1e4; i++ {
+		dp[i] = max(dp[i-1], dp[i-2]+newNums[i])
 	}
 
+	return dp[1e4]
+}
+
+func main() {
+	fmt.Println(deleteAndEarn([]int{1, 1, 1, 2, 4, 5, 5, 5, 6}))
 }
