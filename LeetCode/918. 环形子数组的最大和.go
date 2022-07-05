@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 // 给定一个长度为 n 的环形整数数组 nums ，返回 nums 的非空 子数组 的最大可能和 。
 //
 // 环形数组 意味着数组的末端将会与开头相连呈环状。形式上， nums[i] 的下一个元素是 nums[(i + 1) % n] ， nums[i] 的前一个元素是 nums[(i - 1 + n) % n] 。
@@ -41,6 +45,40 @@ func maxSubarraySumCircular(nums []int) int {
 		return nums[0]
 	}
 
-	dp := make([]int, n)
+	maxFunc := func(x, y int) int {
+		if x > y {
+			return x
+		}
 
+		return y
+	}
+
+	minFunc := func(x, y int) int {
+		if x > y {
+			return y
+		}
+
+		return x
+	}
+
+	curMax, max, curMin, min, sum := nums[0], nums[0], nums[0], nums[0], nums[0]
+	for i := 1; i < n; i++ {
+		sum += nums[i]
+		curMax = maxFunc(curMax+nums[i], nums[i])
+		curMin = minFunc(curMin+nums[i], nums[i])
+		max = maxFunc(max, curMax)
+		min = minFunc(min, curMin)
+	}
+
+	if max < 0 {
+		return max
+	}
+
+	return maxFunc(max, sum-min)
+}
+
+func main() {
+	fmt.Println(maxSubarraySumCircular([]int{1, -2, 3, -2}))
+	fmt.Println(maxSubarraySumCircular([]int{5, -3, 5}))
+	fmt.Println(maxSubarraySumCircular([]int{3, -2, 2, -3}))
 }
