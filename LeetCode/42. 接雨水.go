@@ -40,7 +40,7 @@ func trap(height []int) int {
 		return ans
 	}
 
-	stack := make([]int, 0)
+	stack := make([]int, 0, len(height))
 	stack = append(stack, height[0])
 	stackMax := height[0]
 
